@@ -1,4 +1,4 @@
-name: CI/CD Pipeline for SimpleTimeService
+name: CI/CD for SimpleTimeService
 
 on:
   push:
@@ -23,13 +23,15 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/simpletimeservice:${{ github.sha }} .
+          docker build -t shrutipp/simple-time:${{ github.sha }} .
 
+    
       - name: Tag Docker image
         run: |
-          docker tag ${{ secrets.DOCKER_USERNAME }}/simpletimeservice:${{ github.sha }} ${{ secrets.DOCKER_USERNAME }}/simpletimeservice:latest
+          docker tag shrutipp/simple-time:${{ github.sha }} shrutipp/simple-time:latest
 
+  
       - name: Push Docker image to DockerHub
         run: |
-          docker push ${{ secrets.DOCKER_USERNAME }}/simpletimeservice:${{ github.sha }}
-          docker push ${{ secrets.DOCKER_USERNAME }}/simpletimeservice:latest
+          docker push shrutipp/simple-time:${{ github.sha }}
+          docker push shrutipp/simple-time:latest
