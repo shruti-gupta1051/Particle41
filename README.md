@@ -15,7 +15,7 @@
    cd app
 2. pip install -r requirements.txt
 3. pip install flask
-4. python app.py
+4. python3 /Users/shruti.gupta/Particle41/app/simple_time_service.py
 5. The service will be available at http://127.0.0.1:4545
 
 # Push the Dockerfile to Registery 
